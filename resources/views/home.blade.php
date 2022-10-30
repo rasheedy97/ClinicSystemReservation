@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                   
+                    <div id="index" user_id="{{Auth::user()->id}}" is_admin="{{Auth::user()->is_admin}}"></div>
 
-                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
