@@ -18,5 +18,9 @@ ___
 Open 2 terminals in your text editor run **php artisan serve** and **npm run dev** in another then run xampp.
 ______
 
-*Demo
+## Demo
+
+![Screenshot (2)](https://user-images.githubusercontent.com/46133878/199261521-28efe72d-cfb4-4408-8396-e95298582bfc.png)
+
+
 
