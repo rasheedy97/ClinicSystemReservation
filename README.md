@@ -1,4 +1,11 @@
 # Clinic Reservation System
+A clinic booking system in a small hospital :
+- A patient can book a special clinic with a specific date between 12 pm to 9 pm 
+- An admin can view all apointments of a specific date and speciality.
+### Patient accounts to use :
+- ahmed@ahmed.com - password :ahmed123
+- yosif@yosif.com - password : yosif123
+- admin account : admin@admin.com - password : admin
 _______
 
 ## Installation 
