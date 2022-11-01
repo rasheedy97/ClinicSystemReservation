@@ -27,15 +27,15 @@ ______
 ### admin table containing filtered appointments.
 ![Screenshot (3)](https://user-images.githubusercontent.com/46133878/199263209-6530038f-4c70-4a68-a7f6-c7066379d10b.png)
 ## Patient page with table of his/her appointments.
-![Screenshot (14)](https://user-images.githubusercontent.com/46133878/199265542-197a3450-d0b4-458f-ab10-ac026495f58c.png)
-## User start booking a clinic
-![Screenshot (15)](https://user-images.githubusercontent.com/46133878/199265707-7dcceb52-78be-431e-81af-2a3df542d792.png)
-## User chooses 5th of November
-![Screenshot (16)](https://user-images.githubusercontent.com/46133878/199265929-744ede1b-5b4b-489c-bce1-c688bafa6870.png)
-![Screenshot (17)](https://user-images.githubusercontent.com/46133878/199266171-a1fa5586-d7f5-465e-95f1-2e1ab9b58d48.png)
-## User chooses 8 PM and 40 minutes
-![Screenshot (19)](https://user-images.githubusercontent.com/46133878/199266324-b6a93ed5-281a-468d-98a0-d4274193e262.png)
-## User chooses sport medicine clinic.
-![Screenshot (20)](https://user-images.githubusercontent.com/46133878/199266514-53c74a87-2c59-4910-898b-e7254aa87aee.png)
-![Screenshot (21)](https://user-images.githubusercontent.com/46133878/199266531-6995a09c-ed1b-42da-8a49-a79035fd3966.png)
-## Stored in database and rendered on screen.
+![Screenshot (23)](https://user-images.githubusercontent.com/46133878/199268003-1e542482-4c82-4499-9112-def35955e964.png)
+## Patient starts to book an appointment
+![Screenshot (24)](https://user-images.githubusercontent.com/46133878/199267999-21feab32-bc5b-47c3-a35f-1865c5fc6a22.png)
+![Screenshot (25)](https://user-images.githubusercontent.com/46133878/199267995-8e3fca1f-b334-4002-ac51-7a8c157257fb.png)
+## Patient starts to book date (Date cant be set before the current time.) and time (Time is constraint set by 12 pm to 9 pm)
+![Screenshot (26)](https://user-images.githubusercontent.com/46133878/199267993-4fef112f-76a9-4eda-8dcd-6e246a9cabfc.png)
+![Screenshot (27)](https://user-images.githubusercontent.com/46133878/199267988-f5beba0b-7222-4049-875e-2b003703a538.png)
+![Screenshot (29)](https://user-images.githubusercontent.com/46133878/199269059-ca730a3f-6d64-4c1e-b9d7-c4884bb59de7.png)
+## Updated in the database
+![Screenshot (28)](https://user-images.githubusercontent.com/46133878/199269791-dd21cf05-2c7e-4a5c-9732-9b0778f2bcfe.png)
+## Rendered and updated on screen.
+
