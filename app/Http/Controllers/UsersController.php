@@ -17,7 +17,11 @@ class UsersController extends Controller
      */
     public function index($id)
     {
-        return  Users::find($id)->appointments;
+        
+        
+       
+       
+       return  Users::find($id)->appointments;
        // return  Users::with('appointments')->find($id)->appointments;
     
     }
@@ -41,7 +45,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate username to be unique
         $validator = Validator::make($request->all(), [
         
         'username'  => 'required|max:100|unique:users',
@@ -52,7 +56,7 @@ class UsersController extends Controller
             return response()->json($validator->errors(),400);
         
         }
-        
+        //encrypting of password by bcrypt default hashing with no options and saving into the database
         $newuser = new Users;
         $newuser -> username = request('username');
         $newuser -> hashed_pass = bcrypt(request('password'));

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
+//Auth routes added:(/login,/logout,/register)
 
 Auth::routes();
 

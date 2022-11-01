@@ -1,0 +1,28 @@
+.bokingContainer {
+    display: flex;
+    flex-direction: column;
+}
+.specialtyBtn {
+    background-color: rgb(154, 154, 154);
+    border-radius: 5px;
+}
+.specialtyBtn:hover {
+    background: linear-gradient(90deg, #077033 15%, #13a354 100%);
+    color: white !important;
+    transition: ease 0.3s all;
+}
+.btnsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.btnBook{
+
+    background: grey;
+}
+.btnBook:hover {
+    background: linear-gradient(90deg, #077033 15%, #13a354 100%);
+    color: white !important;
+    transition: ease 0.3s all;
+}

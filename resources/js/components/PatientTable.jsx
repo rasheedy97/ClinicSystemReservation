@@ -1,47 +1,55 @@
 import React from "react";
+import TableViewer from "./TableViewer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import BookingBtn from "./BookingBtn";
 
-function PatientTable(props) {
+import { Container } from "reactstrap";
+
+function PatientTable({ user_id }) {
     const [error, setError] = React.useState(null);
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [items, setItems] = React.useState([]);
 
-    const options = {
-        headers: { "Access-Control-Allow-Origin": "*" },
-    };
+    const columns = React.useMemo(
+        () => [
+            {
+                Header: "Date",
+                accessor: "start_time",
+            },
+
+            {
+                Header: "Specialty",
+                accessor: "speciality",
+            },
+        ],
+        []
+    );
+
     React.useEffect(() => {
-        fetch(
-            `http://localhost:8000/api/v1/users/${props.user_id}/appointments`,
-            options
-        )
+        fetch(`/api/v1/appointments/patients/${user_id}`)
             .then((res) => res.json())
             .then(
                 (result) => {
+                    console.log(result);
                     setIsLoaded(true);
                     setItems(result);
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
                 }
             );
     }, []);
-
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
         return (
-            <ul>
-                {items.map((item) => (
-                    <li key={item.id}>
-                        {item.user_id} {item.speciality_id}
-                    </li>
-                ))}
-            </ul>
+            <Container style={{ display: "flex", flexDirection: "column" }}>
+                <TableViewer columns={columns} data={items} />
+                <BookingBtn user_id={user_id} />
+            </Container>
         );
     }
 }

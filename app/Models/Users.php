@@ -11,10 +11,10 @@ class Users extends Model implements Authenticatable
 {
     use AuthenticableTrait;
     public function appointments() {
-        
         return $this->hasMany(Appointments::class, 'user_id');
     }
 
+    //Assigning these 3 attributes to be mass assigned
     protected $fillable = ['name', 'email', 'password'];
 
 }

@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Specialties extends Model
 {
-    use HasFactory;
+    //A specialty can be booked many times (1 to many )
+    public function appointments() {
+        return $this->hasMany(Appointments::class, 'specialty_id');
+    }
+
 }

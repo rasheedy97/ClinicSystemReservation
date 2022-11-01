@@ -14,10 +14,21 @@ class AppointmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($user_id)
     {
-        //Find specific id:
+           //Get appointments of a specific user id: (join with specalties table)
+        $rows = Appointments::with('specialties:id,name')->where('user_id', $user_id)->get();
 
+        $output = [];
+          //Retrieve special data with foriegn relation:
+        foreach ($rows as $row) {
+            $output[] = [
+                "start_time" => $row["start_time"],
+                "speciality" => $row["specialties"]["name"]
+            ];
+        }
+
+        return $output;
     }
 
     /**
@@ -39,10 +50,10 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO : Add validation
+        // validation : All fields are required , start time has a particular form (Carbon) 
         $validator = Validator::make($request->all(), [
 
-            'start_time' => 'required|date_format:Y-m-d H:i:s|after:'.Carbon::now()->format('Y-m-d H:i:s'),
+            'start_time' => 'required|date_format:Y-m-d H:i:s|after:' . Carbon::now()->format('Y-m-d H:i:s'),
             'user_id' => 'required',
             'specialty_id' => 'required',
         ]);
@@ -50,7 +61,6 @@ class AppointmentsController extends Controller
         if ($validator->fails()) {
 
             return response()->json($validator->errors(), 400);
-
         }
 
         //Store new appointment in appointment table :
@@ -63,7 +73,6 @@ class AppointmentsController extends Controller
         return response()->json([
             '2' => 'Your information stored successfuly!',
         ]);
-
     }
 
     /**
@@ -72,11 +81,24 @@ class AppointmentsController extends Controller
      * @param  \App\Models\Appointments  $appointments
      * @return \Illuminate\Http\Response
      */
-    public function show($day)
+    public function show()
     {
-        //
-        $date = date('Y-m-d', strtotime($day));
-        return Appointments::whereDate('start_time', $date)->get();
+
+        // Get all appointments joined with specialties and user names to the admin.
+        
+        $rows = Appointments::with(['users:id,name'])->with('specialties:id,name')->get();
+
+        $output = [];
+//Retrieve special data with foriegn relation:
+        foreach ($rows as $row) {
+            $output[] = [
+                "start_time" => $row["start_time"],
+                "user" => $row["users"]["name"],
+                "speciality" => $row["specialties"]["name"]
+            ];
+        }
+
+        return $output;
     }
 
     /**

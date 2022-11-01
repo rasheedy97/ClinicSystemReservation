@@ -25,14 +25,15 @@ return new class extends Migration
                   
         });
 
-          $data=[[
-            'name'=>'admin',
-            'password'=>bcrypt('admin'),
-            'email'=>"admin@admin.com",
-            'is_admin'=>1
-          ]];
-          DB::table('users')->insert($data);
-       
+        // Create admin user
+        $data=[[
+          'name'=>'admin',
+          'password'=>bcrypt('admin'),
+          'email'=>"admin@admin.com",
+          'is_admin'=>1
+        ]];
+        DB::table('users')->insert($data);
+
     
     }
 

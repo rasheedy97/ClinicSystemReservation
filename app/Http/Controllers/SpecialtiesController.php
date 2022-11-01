@@ -14,7 +14,7 @@ class SpecialtiesController extends Controller
      */
     public function index()
     {
-        
+        //Returns all speciality rows
         return Specialties::all();
     }
 
@@ -47,6 +47,7 @@ class SpecialtiesController extends Controller
      */
     public function show($id)
     {
+        //get specialties with a specific id
         return Specialties::find($id);
     }
 

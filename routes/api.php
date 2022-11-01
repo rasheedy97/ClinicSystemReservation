@@ -14,20 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// 
 
 //Users routes:
-Route::get('users/{id}/appointments', 'App\Http\Controllers\UsersController@index');
+
 Route::get('users/{id}', 'App\Http\Controllers\UsersController@show');
-Route::post('users','App\Http\Controllers\UsersController@store');
+
 
 //Specialties routes:
 Route::get('specialties', 'App\Http\Controllers\SpecialtiesController@index');
 Route::get('specialties/{id}', 'App\Http\Controllers\SpecialtiesController@show');
 
-//Apointments routes:
-Route::get('appointments/{day}', 'App\Http\Controllers\AppointmentsController@show');
-Route::post('appointments', 'App\Http\Controllers\AppointmentsController@store');
+//Appointments routes:
 
+Route::get('appointments/show', 'App\Http\Controllers\AppointmentsController@show');
+
+Route::get('appointments/patients/{user_id}', 'App\Http\Controllers\AppointmentsController@index');
+
+
+Route::post('appointments', 'App\Http\Controllers\AppointmentsController@store');
